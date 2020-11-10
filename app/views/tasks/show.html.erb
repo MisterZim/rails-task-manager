@@ -4,6 +4,9 @@
   <p><%= @task.details %></p>
 </div>
 
+<%= link_to "Edit this task", edit_task_path(@task), class: "btn btn-primary" %>
+<%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, task_path(@task), method: :delete, data: { confirm: "Delete #{@task.title}?" } %>
+
 <%= form_for(@task) do |f| %>
   <% if @task.completed %>
     <%= f.check_box :completed %>
